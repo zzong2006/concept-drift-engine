@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1836366e-bd16-4d42-bea4-bfc23086f3d6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/options.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/options.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_options.ini" beforeDir="false" afterPath="$PROJECT_DIR$/server_options.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +91,12 @@
     <property name="SearchEverywhereHistoryKey" value="setting&#9;ACTION&#9;Database.Settings&#10;Terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;deployment&#9;FILE&#9;file://C:/Users/woosung/PycharmProjects/server/.idea/deployment.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
@@ -276,7 +278,7 @@
       <updated>1531836654230</updated>
       <workItem from="1598786651036" duration="129000" />
       <workItem from="1598786800957" duration="75000" />
-      <workItem from="1598787216931" duration="447000" />
+      <workItem from="1598787216931" duration="1051000" />
     </task>
     <servers />
   </component>
