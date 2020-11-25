@@ -18,7 +18,7 @@ examples_to_show = 12
 ################################################
 # csv 설정값 읽어오는 코드
 ################################################
-CONF_FILE = "options.ini"
+CONF_FILE = "../options.ini"
 config = configparser.ConfigParser()
 config.read(CONF_FILE)
 

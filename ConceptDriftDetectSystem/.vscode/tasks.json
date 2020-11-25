@@ -1,9 +1,0 @@
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "command": "C:\\Users\\Daewon\\Anaconda3\\envs\\tensorflow\\python",
-    "isShellCommand": true,
-    "showOutput": "always",
-    "args": ["${file}"]
-}

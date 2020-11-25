@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="woosung@165.132.214.219:22">
+  <component name="PublishConfigData" autoUpload="Always">
     <serverData>
-      <paths name="woosung@165.132.214.219:22">
+      <paths name="dbadmin@localhost:45961 password">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_614" local="$PROJECT_DIR$" />
+            <mapping deploy="/woosung/concept_drift_engine" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

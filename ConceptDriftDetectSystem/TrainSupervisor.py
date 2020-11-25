@@ -10,7 +10,7 @@ config.read(CONF_FILE)
 
 # 전역 설정값 로드
 section = "GENERAL"
-DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')     # 데이터 폴더는 공통으로 사용할 것
+DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')  # 데이터 폴더는 공통으로 사용할 것
 
 #################################################################################
 # 학습 단계
@@ -28,8 +28,6 @@ DATA_AMOUNT = int(config.get(section, 'DATA AMOUNT'))
 WINDOW_DATA_PATH = DATA_FOLDER + "/" + config.get(section, 'WINDOW DATA FILE NAME')
 WINDOW_SIZE = int(config.get(section, 'WINDOW SIZE'))
 SLIDE_STEP_SIZE = int(config.get(section, 'SLIDE STEP SIZE'))
-
-
 
 # # CNN 관련 설정값
 # # 클러스터링 관련 설정값
@@ -54,14 +52,15 @@ SLIDE_STEP_SIZE = int(config.get(section, 'SLIDE STEP SIZE'))
 # 1-2. 스트림 데이터를 읽어 윈도우로 분할한다
 print("1-2. 데이터를 윈도우로 분할합니다.")
 from DataGenerator import StreamDataSplitter
+
 num_of_window_data = 0  # 나뉜 윈도우의 갯수를 저장
 
 print("윈도우 데이터를 구성합니다. 패러미터는", STREAM_DATA_PATH, WINDOW_DATA_PATH, WINDOW_SIZE, SLIDE_STEP_SIZE, "입니다.")
-num_of_window_data = StreamDataSplitter.split_data_file_to_file(STREAM_DATA_PATH, WINDOW_DATA_PATH, WINDOW_SIZE, SLIDE_STEP_SIZE)
+num_of_window_data = StreamDataSplitter.split_data_file_to_file(STREAM_DATA_PATH, WINDOW_DATA_PATH, WINDOW_SIZE,
+                                                                SLIDE_STEP_SIZE)
 print("총 %d개의 윈도우 데이터를 구성하였습니다." % num_of_window_data)
 
 print("")
-
 
 #################################################################################
 # 2. 오토인코더를 통한 데이터 축소
@@ -78,7 +77,7 @@ from Autoencoder import Train
 
 print("Autoencoder 모델의 학습을 시작합니다. 패러미터는", MODEL_FOLDER, int(config.get(section, 'TRAIN NUM')),
       int(config.get(section, 'BATCH SIZE')), int(config.get(section, 'HIDDEN LAYER #1')),
-      int(config.get(section, 'REDUCED DIMENSION')),"입니다.\n")
+      int(config.get(section, 'REDUCED DIMENSION')), "입니다.\n")
 Train.train()
 pass
 
@@ -90,12 +89,11 @@ print("2-2. 학습된 오토인코더를 이용하여 모든 윈도우 데이터
 
 from Autoencoder import Datareduce
 
-print("Autoencoder를 통한 데이터 축소를 진행합니다. 패러미터는", REDUCED_DATA_PATH, int(config.get(section, 'BATCH SIZE')),"입니다.")
-Datareduce.datareduce(num_of_window_data, REDUCED_DATA_PATH)    # 이를 통해 REDUCED_DATA가 생성됨
+print("Autoencoder를 통한 데이터 축소를 진행합니다. 패러미터는", REDUCED_DATA_PATH, int(config.get(section, 'BATCH SIZE')), "입니다.")
+Datareduce.datareduce(num_of_window_data, REDUCED_DATA_PATH)  # 이를 통해 REDUCED_DATA가 생성됨
 pass
 
 print("")
-
 
 #################################################################################
 # 3. k-means를 이용한 클러스터링
@@ -103,7 +101,7 @@ print("3. 클러스터링(K-Means)을 이용하여 모든 윈도우 데이터에
 
 # 클러스터링 관련 설정값
 section = "CLUSTERING"  # ini 파일의 섹션
-CLUSTER_AMOUNT = int(config.get(section, 'CLUSTER AMOUNT'))     # 생성할 클러스터 수
+CLUSTER_AMOUNT = int(config.get(section, 'CLUSTER AMOUNT'))  # 생성할 클러스터 수
 LABEL_ATTATCHED_WINDOW_DATA_PATH = DATA_FOLDER + "/" + config.get(section, 'LABEL ATTATCHED WINDOW DATA FILE NAME')
 CENTROIDS_SAVE_FILE_PATH = DATA_FOLDER + "/" + config.get(section, 'CENTROIDS SAVE FILE NAME')
 
@@ -111,7 +109,8 @@ from Clustering import Clustering
 
 # 3-1. 파일을 읽어 클러스터링 수행
 print("3-1. 클러스터링을 수행합니다. 패러미터는", REDUCED_DATA_PATH, CENTROIDS_SAVE_FILE_PATH, CLUSTER_AMOUNT, "입니다.")
-KMeans = Clustering.KMeans_from_a_file(REDUCED_DATA_PATH, CENTROIDS_SAVE_FILE_PATH, CLUSTER_AMOUNT)   # 임의 속성 개수를 갖는 csv 데이터를 읽어 클러스터링을 수행하는 모듈. 생성할 클러스터 수는 여기서 지정한다.
+KMeans = Clustering.KMeans_from_a_file(REDUCED_DATA_PATH, CENTROIDS_SAVE_FILE_PATH,
+                                       CLUSTER_AMOUNT)  # 임의 속성 개수를 갖는 csv 데이터를 읽어 클러스터링을 수행하는 모듈. 생성할 클러스터 수는 여기서 지정한다.
 
 # 3-2. 클러스터링 결과를 윈도우 데이터에 붙임
 print("3-2. 클러스터링을 통해 얻은 레이블을 윈도우 데이터와 합칩니다. 패러미터는", WINDOW_DATA_PATH, LABEL_ATTATCHED_WINDOW_DATA_PATH, "입니다.")
@@ -133,7 +132,9 @@ print("4-1. CNN의 학습을 수행합니다.")
 
 from CNN import Train
 
-print("CNN 모델의 학습을 시작합니다. 패러미터는", MODEL_FOLDER, LABEL_ATTATCHED_WINDOW_DATA_PATH, int(config.get(section, 'BATCH SIZE')), TRAIN_NUM, int(config.get(section, 'NUM OF 1ST KERNEL')), int(config.get(section, 'NUM OF 2ND KERNEL')), int(config.get(section, 'L1 SIZE')),"입니다.\n")
+print("CNN 모델의 학습을 시작합니다. 패러미터는", MODEL_FOLDER, LABEL_ATTATCHED_WINDOW_DATA_PATH,
+      int(config.get(section, 'BATCH SIZE')), TRAIN_NUM, int(config.get(section, 'NUM OF 1ST KERNEL')),
+      int(config.get(section, 'NUM OF 2ND KERNEL')), int(config.get(section, 'L1 SIZE')), "입니다.\n")
 Train.train(MODEL_FOLDER, TRAIN_NUM, KEEP_PROB)
 pass
 
@@ -156,8 +157,8 @@ else:   # 폴더가 없는 경우
     pass
 '''
 
-#from CNN import Eval
-#Eval.eval(MODEL_FOLDER, num_of_window_data)
+# from CNN import Eval
+# Eval.eval(MODEL_FOLDER, num_of_window_data)
 
 
 '''

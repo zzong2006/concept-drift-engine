@@ -25,17 +25,18 @@ config.read(CONF_FILE)
 
 # 전역 설정값 로드
 section = "GENERAL"
-DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')     # 데이터 폴더는 공통으로 사용할 것
+DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')  # 데이터 폴더는 공통으로 사용할 것
 
 section = "STREAM DATA"
 MODEL_SAVE_FOLDER = "./" + config.get(section, 'WINDOW SIZE') + "/"
 
 section = "DATA REDUCING"
 MODEL_SAVE_FOLDER = "./" + config.get(section, 'MODEL SAVE FOLDER NAME') + "/"
-training_epochs = 1             # 전체 데이터를 1회만 순회할 것임
+training_epochs = 1  # 전체 데이터를 1회만 순회할 것임
 BATCH_SIZE = int(config.get(section, 'BATCH SIZE'))
 
-batch_per_epoch = 100   # 1 에폭을 학습하기 위하여 필요한 배치 수. 디폴트로 100 주었다
+batch_per_epoch = 100  # 1 에폭을 학습하기 위하여 필요한 배치 수. 디폴트로 100 주었다
+
 
 ################################################
 # 이하 신경망을 이용한 데이터 축소 코드
@@ -65,15 +66,15 @@ def datareduce(num_of_window_data, OUTPUT_DATA_PATH):
             print("checkpoint 파일이 존재하지 않습니다. 프로그램을 종료합니다.")
             exit()
 
-        coord = tf.train.Coordinator()                          # 기본 큐 코디네이터 생성. 스레드들을 관리 가능
-        threads = tf.train.start_queue_runners(sess = sess, coord=coord)     # 큐 러너 생성.
+        coord = tf.train.Coordinator()  # 기본 큐 코디네이터 생성. 스레드들을 관리 가능
+        threads = tf.train.start_queue_runners(sess=sess, coord=coord)  # 큐 러너 생성.
 
         # sess.run(init)
 
         # Training cycle
         for epoch in range(training_epochs):
             # batch_labels, batch_values = sess.run([Input.labels, Input.values])
-    
+
             # Loop over all batches
             for i in range(batch_per_epoch):
                 # 데이터를 불러옴
@@ -90,12 +91,13 @@ def datareduce(num_of_window_data, OUTPUT_DATA_PATH):
             pass
 
         coord.request_stop()
-        coord.join(threads) 
-        
+        coord.join(threads)
+
         out_file.close()
 
-        #out_file_temp.close()
+        # out_file_temp.close()
     pass
+
 
 #######################################################################################################
 # 단독으로 실행될 일이 없을 것 같음

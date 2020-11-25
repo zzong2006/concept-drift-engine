@@ -4,22 +4,23 @@
 
 import numpy as np
 
+
 class Window:
     # 윈도우를 초기화하는 함수
     def __init__(self, data, time):
-        self.time = time    # 윈도우가 생성된 시점을 의미 0부터 카운트
+        self.time = time  # 윈도우가 생성된 시점을 의미 0부터 카운트
         self.data = [i.value for i in data]
         self.offset = [i.offset for i in data]
         self.partition = [i.partition for i in data]
-        #self.offset = offsets # kafka에서 각 데이터에 대해 받았을 오프셋
-        self.label = -1     # 신경망에서 정보를 얻기 전에는 모름
+        # self.offset = offsets # kafka에서 각 데이터에 대해 받았을 오프셋
+        self.label = -1  # 신경망에서 정보를 얻기 전에는 모름
         pass
 
     def setLabel(self, label):
         self.label = label
         pass
 
-# 직접 접근해도 되나, 필요하다면 쓸 수 있는 함수
+    # 직접 접근해도 되나, 필요하다면 쓸 수 있는 함수
     def getData(self):
         return self.data
         pass

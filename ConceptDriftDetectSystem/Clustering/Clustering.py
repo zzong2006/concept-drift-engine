@@ -30,10 +30,11 @@ def KMeans():
     print(kmeans.cluster_centers_)
 '''
 
+
 # 임의의 csv 파일을 받아 클러스터링을 수행하고, 클러스터러 객체를 반환한다
 def KMeans_from_a_file(INPUT_FILE_PATH, CENTROIDS_SAVE_FILE_PATH, N_CLUSTERS):
     # with open('../options.ini', 'r') as csvfile:
-    csvfile = open(INPUT_FILE_PATH, 'r')     # 경로 바꿀 것
+    csvfile = open(INPUT_FILE_PATH, 'r')  # 경로 바꿀 것
     csv_reader = csv.reader(csvfile, delimiter=',', quotechar='|', lineterminator='\n')
 
     all_data = []
@@ -43,12 +44,12 @@ def KMeans_from_a_file(INPUT_FILE_PATH, CENTROIDS_SAVE_FILE_PATH, N_CLUSTERS):
         row = list(map(float, row))
         all_data.append(row)
 
-    #‘k-means++’ : selects initial cluster centers 
+    # ‘k-means++’ : selects initial cluster centers
     #              for k-mean clustering in a smart way to speed up convergence. 
 
-    clustered = KMeans(n_clusters = N_CLUSTERS, init='k-means++', random_state = 0)
-    #clustered = KMeans(n_clusters = N_CLUSTERS, init='k-means++', random_state = 1214, verbose = 1, n_init = 10, tol= 1e-18, n_jobs = -3)
-    
+    clustered = KMeans(n_clusters=N_CLUSTERS, init='k-means++', random_state=0)
+    # clustered = KMeans(n_clusters = N_CLUSTERS, init='k-means++', random_state = 1214, verbose = 1, n_init = 10, tol= 1e-18, n_jobs = -3)
+
     # Compute k-means clustering.
     clustered.fit(all_data)
 
@@ -63,6 +64,7 @@ def KMeans_from_a_file(INPUT_FILE_PATH, CENTROIDS_SAVE_FILE_PATH, N_CLUSTERS):
     centroidfile.close()
 
     return clustered
+
 
 # 임의의 csv 파일과 레이블 리스트를 입력으로, CNN이 학습가능한 레이블이 포함된 csv 파일로 변환한다
 # 차원 축소가 이루어지지 않은 윈도우 데이터에 레이블을 다는 것이 사용 예

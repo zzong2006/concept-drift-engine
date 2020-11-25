@@ -4,7 +4,9 @@
 
 import csv
 
-def split_data_file_to_file(INPUT_FILE_NAME='data.csv', OUTPUT_FILE_NAME='splitted_data.csv', WINDOW_SIZE=1000, SLIDE_STEP_SIZE=200):
+
+def split_data_file_to_file(INPUT_FILE_NAME='data.csv', OUTPUT_FILE_NAME='splitted_data.csv', WINDOW_SIZE=1000,
+                            SLIDE_STEP_SIZE=200):
     '''MAIN'''
     with open(INPUT_FILE_NAME, 'r') as in_file, open(OUTPUT_FILE_NAME, 'w') as out_file:
         out_file_csv = csv.writer(out_file, delimiter=',', quotechar='|', lineterminator='\n')
@@ -46,6 +48,7 @@ def split_data_file_to_file(INPUT_FILE_NAME='data.csv', OUTPUT_FILE_NAME='splitt
                 out_file_csv.writerow(temp[curr:(curr + WINDOW_SIZE)])
                 curr += WINDOW_SIZE
         return num
+
 
 # csv 파일 내에 행이 몇 개 있는지 계산하여 반환하는 함수. 기존에 생성된 윈도우 데이터를 사용할 때 필요하다.
 def how_many_windows_in_file(INPUT_FILE_NAME):

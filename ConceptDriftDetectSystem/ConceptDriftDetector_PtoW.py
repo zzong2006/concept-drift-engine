@@ -5,13 +5,13 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-import timeit       # 실행시간 측정을 위한 모듈
+import timeit  # 실행시간 측정을 위한 모듈
 
 # 통신을 위한 모듈
 import socket
 import json
 
-#import Experimenter # precision, recall 계산을 위한 실험 모듈
+# import Experimenter # precision, recall 계산을 위한 실험 모듈
 
 # ini 설정을 불러오기 위한 변수 및 객체
 CONF_FILE = "options.ini"
@@ -20,7 +20,7 @@ config.read(CONF_FILE)
 
 # 전역 설정값 로드
 section = "GENERAL"
-DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')     # 데이터 폴더는 공통으로 사용할 것
+DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')  # 데이터 폴더는 공통으로 사용할 것
 USER_ID = config.get(section, 'USER ID')
 SOURCE_NAME = config.get(section, 'SOURCE NAME')
 
@@ -49,19 +49,21 @@ section = "DETECT RESULT RECV CLIENT"
 DST_IP = config.get(section, 'IP')
 DST_PORT = config.get(section, 'PORT')
 
+
 def overThresholdAmount(ARRAY, THRESHOLD):
     diffs = np.array(ARRAY)
     np.putmask(diffs, diffs >= THRESHOLD, 1)
     np.putmask(diffs, diffs < THRESHOLD, 0)
     return int(np.sum(diffs, 0))
 
+
 def transmitResult(offset, partition):
     try:
         s = socket.socket()
         s.connect((DST_IP, int(DST_PORT)))
 
-        request = {"message":"concept-drift", "user-id":USER_ID, "src-name":SOURCE_NAME, "offset":offset,
-                   "partition":partition}
+        request = {"message": "concept-drift", "user-id": USER_ID, "src-name": SOURCE_NAME, "offset": offset,
+                   "partition": partition}
         d_request = json.dumps(request)
 
         s.send(d_request.encode('utf-8'))
@@ -69,9 +71,10 @@ def transmitResult(offset, partition):
     except:
         s.close()
         pass
-    return 0     
+    return 0
 
-def drawSerialData(strData, currData, colorRange ,current ):
+
+def drawSerialData(strData, currData, colorRange, current):
     fig, ax = plt.subplots()
     idx = np.arange(len(strData))
     color = np.array(['black' for _ in range(len(strData))], dtype=object)
@@ -80,7 +83,7 @@ def drawSerialData(strData, currData, colorRange ,current ):
 
     points = np.column_stack((idx, strData)).reshape(-1, 1, 2)
     segments = np.hstack([points[:-1], points[1:]])
-    coll = LineCollection(segments, colors = color)
+    coll = LineCollection(segments, colors=color)
     ax.add_collection(coll)
     ax.autoscale_view()
     plt.show()
@@ -92,17 +95,18 @@ def drawSerialData(strData, currData, colorRange ,current ):
 #################################################################################
 # 1-1. 데이터 스트림 준비
 import DataStream as DS
-# stream_addr, topic, window_size, step_size
-print("1.1 데이터 스트림을 준비합니다. 패러미터는", SERVER, TOPIC, WINDOW_SIZE, SLIDE_STEP_SIZE,"입니다.")
 
+# stream_addr, topic, window_size, step_size
+print("1.1 데이터 스트림을 준비합니다. 패러미터는", SERVER, TOPIC, WINDOW_SIZE, SLIDE_STEP_SIZE, "입니다.")
 
 # a_stream = DS.FileAsStream(STREAM_DATA_PATH, WINDOW_SIZE, SLIDE_STEP_SIZE, INDEX) # 로컬 테스트용
-a_stream = DS.KafkaAsStream(SERVER, TOPIC, WINDOW_SIZE, SLIDE_STEP_SIZE, INDEX) # 서버용
+a_stream = DS.KafkaAsStream(SERVER, TOPIC, WINDOW_SIZE, SLIDE_STEP_SIZE, INDEX)  # 서버용
 print("데이터 스트림이 준비되었습니다.")
 
 #################################################################################
 # 1-2. Centroids 준비
 from Clustering import ClusterCentroidsReader
+
 print("1-2. Centroids 정보를 불러오는 중입니다...")
 cluster_centroids, difference_matrix = ClusterCentroidsReader.readNCalc(CLUSTERS_FILE_PATH)
 print("Centroids 정보를 모두 읽었습니다.")
@@ -114,11 +118,11 @@ print("클러스터 간 거리를 모두 사전 계산하였습니다.")
 # CNN 관련 설정값
 section = "CNN"  # ini 파일의 섹션
 MODEL_FOLDER = "./" + config.get(section, 'MODEL SAVE FOLDER NAME') + "/"
-#TRAIN_NUM = int(config.get(section, 'TRAIN NUM'))
+# TRAIN_NUM = int(config.get(section, 'TRAIN NUM'))
 
 print("1-3. 학습된 CNN을 로드합니다.")
 import tensorflow as tf
-from Autoencoder import Autoencoder_TF as AE            # 여기서 오토인코더를 사용하지는 않으나, 구조상의 문제로 일단 넣어야 동작함
+from Autoencoder import Autoencoder_TF as AE  # 여기서 오토인코더를 사용하지는 않으나, 구조상의 문제로 일단 넣어야 동작함
 from CNN import CNN_TF as CNN
 
 config = tf.ConfigProto()
@@ -126,14 +130,13 @@ config.gpu_options.allow_growth = True
 
 #################################################################################
 # 2. CNN을 통한 레이블 획득
-import X as classX   # X 윈도우의 구성을 위한 모듈
+import X as classX  # X 윈도우의 구성을 위한 모듈
 
-X = classX.X(difference_matrix)     # X를 생성
+X = classX.X(difference_matrix)  # X를 생성
 plottingColor = np.array([])
 
 with tf.Session(config=config) as sess:
-
-    saver = tf.train.Saver()                                # 학습이 끝난 모델 로드를 위한 saver 객체
+    saver = tf.train.Saver()  # 학습이 끝난 모델 로드를 위한 saver 객체
     ckpt = tf.train.get_checkpoint_state(MODEL_FOLDER)
     if ckpt and ckpt.model_checkpoint_path:
         print("checkpoint 파일이 존재합니다. load 하겠습니다.")
@@ -150,46 +153,47 @@ with tf.Session(config=config) as sess:
     curr = 0
 
     reference_window.label = sess.run(CNN.top_k_op, feed_dict={
-            CNN.x: [reference_window.data], CNN.keep_prob: 1.0})[1][0][0]      # 최초 레퍼런스 윈도우에 대한 레이블을 설정
+        CNN.x: [reference_window.data], CNN.keep_prob: 1.0})[1][0][0]  # 최초 레퍼런스 윈도우에 대한 레이블을 설정
 
-    X.clearExceptMatrix()   # 기존에 남아있는 요소들이 있을 수 있으므로, 비워버림
+    X.clearExceptMatrix()  # 기존에 남아있는 요소들이 있을 수 있으므로, 비워버림
 
     # 최초의 X 윈도우를 구성
     for i in range(WINDOWS_AMOUNT_TO_VERIFY_PERSISTENT):
         temp = a_stream.getWindow()
         temp.label = sess.run(CNN.top_k_op, feed_dict={
-            CNN.x: [temp.data], CNN.keep_prob: 1.0})[1][0][0]      # X에 들어갈 윈도우에 대한 레이
+            CNN.x: [temp.data], CNN.keep_prob: 1.0})[1][0][0]  # X에 들어갈 윈도우에 대한 레이
         X.append(temp.label, temp.time, temp.data, temp.offset, temp.partition)
         global_serialData = np.append(global_serialData[:curr], X.data[-1])
         curr += SLIDE_STEP_SIZE
-        #print("{} : {} ".format(i, temp.data))
-    #print(len(X.data))
+        # print("{} : {} ".format(i, temp.data))
+    # print(len(X.data))
 
     # 이 시점에서 레퍼런스 윈도우 및 X 준비 완료
-    while(True):    # ::::::::::::::조건 나중에 변경해야 할 것임. 스트림의 끝을 어떻게 감지하지?::::::::::::::
+    while (True):  # ::::::::::::::조건 나중에 변경해야 할 것임. 스트림의 끝을 어떻게 감지하지?::::::::::::::
         # 페이즈 1
         # 아래 과정에서 레퍼런스 윈도우와 X 내 과반수의 차이가 임계값을 넘겼는지 확인. 방법 2 수행과정 1에 해당
-        diff_ref_X = X.differenceAgainstALabel(reference_window.label)       
+        diff_ref_X = X.differenceAgainstALabel(reference_window.label)
         # 레퍼런스 윈도우와 X 내의 윈도우들이 충분히 다른가?(과반수가 임계값을 넘겼는가? 윈도우가 8개였다면 5이상, 윈도우가 9개였다면 5이상) 달랐다면 페이즈2로 넘어감
         # print(overThresholdAmount(diff_ref_X, THRESHOLD_TO_TRIGGER))
-        if(overThresholdAmount(diff_ref_X, THRESHOLD_TO_TRIGGER) > math.floor(X.length/2)):
+        if (overThresholdAmount(diff_ref_X, THRESHOLD_TO_TRIGGER) > math.floor(X.length / 2)):
             # print(X.times[0], "시점에서 현재 concept과 크게 다른 concept 구간이 등장했습니다. drift가 시작되었으며, 지금부터 concept이 안정화되는 구간을 찾습니다.")
             # 페이즈 2 시작
-            while(True):
+            while (True):
                 # 아래 과정에서 X의 선두 윈도우와 X 내 과반수의 차이가 임계값 이내인지 확인. 방법 2 수행과정 2에 해당
                 diff_X1_X = X.differenceAgainstALabel(X.labels[-1])
                 # 레퍼런스 윈도우와 X 내의 윈도우들이 충분히 다른가?(과반수가 임계값을 넘겼는가? 윈도우가 8개였다면 5이상, 윈도우가 9개였다면 5이상) 달랐다면 페이즈2로 넘어감
-                if(overThresholdAmount(diff_X1_X, THRESHOLD_TO_TRIGGER) <= math.ceil(X.length/2)):
-                    #print(X.times[0], "시점에서 안정화 된 concept 구간이 등장했습니다. drift가 종료되었으며, 지금부터 drift가 발생하는 구간을 찾습니다.")
-                    print(X.times[-1], "시점에서 개념 변화가 검출되었습니다.. offset은", X.offsets[-1][-1],"이며, partition은", X.partitions[-1][-1], "입니다.")
+                if (overThresholdAmount(diff_X1_X, THRESHOLD_TO_TRIGGER) <= math.ceil(X.length / 2)):
+                    # print(X.times[0], "시점에서 안정화 된 concept 구간이 등장했습니다. drift가 종료되었으며, 지금부터 drift가 발생하는 구간을 찾습니다.")
+                    print(X.times[-1], "시점에서 개념 변화가 검출되었습니다.. offset은", X.offsets[-1][-1], "이며, partition은",
+                          X.partitions[-1][-1], "입니다.")
                     if plottingColor.size == 0:
-                        plottingColor = np.array([[curr-SLIDE_STEP_SIZE, curr+WINDOW_SIZE-SLIDE_STEP_SIZE]])
-                    else :
-                        plottingColor = np.vstack( (plottingColor,
-                                    np.array([curr-SLIDE_STEP_SIZE,curr+WINDOW_SIZE-SLIDE_STEP_SIZE]) ))
+                        plottingColor = np.array([[curr - SLIDE_STEP_SIZE, curr + WINDOW_SIZE - SLIDE_STEP_SIZE]])
+                    else:
+                        plottingColor = np.vstack((plottingColor,
+                                                   np.array(
+                                                       [curr - SLIDE_STEP_SIZE, curr + WINDOW_SIZE - SLIDE_STEP_SIZE])))
                     transmitResult(X.offsets[-1][-1], X.partitions[-1][-1])
-                    drawSerialData(global_serialData, X.data[-1],plottingColor, curr)
-
+                    drawSerialData(global_serialData, X.data[-1], plottingColor, curr)
 
                     # 변화한 concept을 기준으로 다시 drift 검출을 하기 위하여 레퍼런스 윈도우를 X의 최후 윈도우로 지정
                     reference_window.label = X.labels[-1]
@@ -206,11 +210,12 @@ with tf.Session(config=config) as sess:
                             # experimenter.result()
                             exit()
                         next_window.label = sess.run(CNN.top_k_op, feed_dict={
-                            CNN.x: [next_window.data], CNN.keep_prob: 1.0})[1][0][0]      # X에 들어갈 윈도우에 대한 레이블
-                        X.slide(next_window.label, next_window.time, next_window.data, next_window.offset, next_window.partition)
+                            CNN.x: [next_window.data], CNN.keep_prob: 1.0})[1][0][0]  # X에 들어갈 윈도우에 대한 레이블
+                        X.slide(next_window.label, next_window.time, next_window.data, next_window.offset,
+                                next_window.partition)
                         global_serialData = np.append(global_serialData[:curr], X.data[-1])
                         curr += SLIDE_STEP_SIZE
-                    break   # 페이즈 2 루프를 끊어 페이즈 1으로 돌아감
+                    break  # 페이즈 2 루프를 끊어 페이즈 1으로 돌아감
 
                 # X의 슬라이드를 위해 다음 윈도우를 가져옴
                 try:
@@ -221,9 +226,10 @@ with tf.Session(config=config) as sess:
                     # print("실행 시간:", finish_time - start_time)
                     exit()
                 next_window.label = sess.run(CNN.top_k_op, feed_dict={
-                    CNN.x: [next_window.data], CNN.keep_prob: 1.0})[1][0][0]      # X에 들어갈 다음 윈도우에 대한 레이블
+                    CNN.x: [next_window.data], CNN.keep_prob: 1.0})[1][0][0]  # X에 들어갈 다음 윈도우에 대한 레이블
                 # X를 슬라이드 후 루프
-                X.slide(next_window.label, next_window.time, next_window.data, next_window.offset, next_window.partition)
+                X.slide(next_window.label, next_window.time, next_window.data, next_window.offset,
+                        next_window.partition)
                 global_serialData = np.append(global_serialData[:curr], X.data[-1])
                 curr += SLIDE_STEP_SIZE
             pass
@@ -238,11 +244,9 @@ with tf.Session(config=config) as sess:
             # experimenter.result()
             exit()
         next_window.label = sess.run(CNN.top_k_op, feed_dict={
-            CNN.x: [next_window.data], CNN.keep_prob: 1.0})[1][0][0]      # X에 들어갈 다음 윈도우에 대한 레이블
+            CNN.x: [next_window.data], CNN.keep_prob: 1.0})[1][0][0]  # X에 들어갈 다음 윈도우에 대한 레이블
 
         # X를 슬라이드 후 루프
         X.slide(next_window.label, next_window.time, next_window.data, next_window.offset, next_window.partition)
         global_serialData = np.append(global_serialData[:curr], X.data[-1])
         curr += SLIDE_STEP_SIZE
-
-            

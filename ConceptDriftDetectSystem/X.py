@@ -6,11 +6,13 @@ X는 윈도우 데이터 자체는 보관하지 않는다
 '''
 import numpy as np
 
+
 def overThresholdAmount(ARRAY, THRESHOLD):
     diffs = np.array(ARRAY)
     np.putmask(diffs, diffs >= THRESHOLD, 1)
     np.putmask(diffs, diffs < THRESHOLD, 0)
     return int(np.sum(diffs, 0))
+
 
 class X:
     # 윈도우를 초기화하는 함수
@@ -36,14 +38,14 @@ class X:
         pass
 
     def delete(self):
-        if(self.length > 0):
+        if (self.length > 0):
             self.labels.remove(self.labels[0])
             self.times.remove(self.times[0])
             self.data.remove(self.data[0])
             self.offsets.remove(self.offsets[0])
             self.partitions.remove(self.partitions[0])
             self.length -= 1
-            if(self.length > 0):    # 제거 후에 원소가 없을 수도 있기 때문에 아래와같이 추가 분기 수행
+            if (self.length > 0):  # 제거 후에 원소가 없을 수도 있기 때문에 아래와같이 추가 분기 수행
                 self.difference_between_index0_with_all = self.differenceAgainstALabel(self.labels[0])
             else:
                 self.difference_between_index0_with_all = []
@@ -67,7 +69,7 @@ class X:
         self.append(label, time, data, offset, partition)
         pass
 
-### concept drift 검출을 위한 함수들. 인스턴스의 값을 변경하는 일은 없으며, 없어야 함
+    ### concept drift 검출을 위한 함수들. 인스턴스의 값을 변경하는 일은 없으며, 없어야 함
     # X 내의 특정 윈도우와 전체 원소의 비교값을 리스트로 만들어 반환하는 함수. 인덱스로 특정 윈도우를 지정가능하다.
     def differenceAgainstALabel(self, ref_label):
         difference_list = []
@@ -80,24 +82,22 @@ class X:
     def differenceFromNeighbors(self):
         difference_list = []
         for l in range(len(self.labels)):
-            difference_list.append(self.difference_matrix[self.labels[l-1]][self.labels[l]])
+            difference_list.append(self.difference_matrix[self.labels[l - 1]][self.labels[l]])
         return difference_list
-
 
     # X 내에서 가장 많은 레이블이 무엇인지 찾아, 그 레이블과 그 레이블이 나타나는 첫 번째 인덱스를 반환하는 함수
     # 레이블이 총 몇 종류인지는 difference_matrix를 통해 알 수 있다
     def mostNumorousLabelNFirstIndex(self):
-        count_array = [0 for i in range(len(self.difference_matrix[0]))]    # 카운트를 위한 리스트 선언
+        count_array = [0 for i in range(len(self.difference_matrix[0]))]  # 카운트를 위한 리스트 선언
         # 카운트
         for label in self.labels:
             count_array[label] += 1
         most_label = np.argmax(count_array)
         return most_label, self.labels.index(most_label)
 
-            
 
 # 테스트 드라이버
-if(__name__ == '__main__'):
+if (__name__ == '__main__'):
     import configparser
 
     # ini 설정을 불러오기 위한 변수 및 객체
@@ -107,7 +107,7 @@ if(__name__ == '__main__'):
 
     # 전역 설정값 로드
     section = "GENERAL"
-    DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')     # 데이터 폴더는 공통으로 사용할 것
+    DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')  # 데이터 폴더는 공통으로 사용할 것
 
     # 윈도우 정보
     section = "CLUSTERING"  # ini 파일의 섹션
@@ -115,6 +115,7 @@ if(__name__ == '__main__'):
 
     # Centroids 준비
     from Clustering import ClusterCentroidsReader
+
     cluster_centroids, difference_matrix = ClusterCentroidsReader.readNCalc(CLUSTERS_FILE_PATH)
 
     X = X(difference_matrix)

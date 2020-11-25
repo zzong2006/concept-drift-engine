@@ -1,9 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def uniqueish_color():
     """There're better ways to generate unique colors, but this isn't awful."""
     return plt.cm.gist_ncar(np.random.random())
+
 
 xy = (np.random.random((10, 2)) - 0.5).cumsum(axis=0)
 
@@ -37,8 +39,7 @@ ax.autoscale_view()
 
 plt.show()
 
-
-#!/usr/bin/env python
+# !/usr/bin/env python
 '''
 Color parts of a line based on its properties, e.g., slope.
 '''

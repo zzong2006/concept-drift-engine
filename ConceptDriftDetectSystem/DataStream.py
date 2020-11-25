@@ -129,14 +129,16 @@ class KafkaAsStream(Stream):
         raise ValueError("Kafka Server 에서 10초 동안 data 입력이 없습니다.")
 
 if(__name__ == '__main__'):
-    '''
     a_stream = FileAsStream("./Data/stream1.raw", 1000, 40)
     data = a_stream.getWindow()
-    #print(data.data)
+    print(data.data)
+    '''
+    
 
     data = a_stream.getWindow()
     #print(data.data)
-    '''
-    b_stream = KafkaAsStream("165.132.214.219:9093", "test_stream", 1000, 40)
-    data2 = b_stream.getWindow()
-    print(data2.data)
+    ''' 
+
+    # b_stream = KafkaAsStream("165.132.214.219:9093", "test_stream", 1000, 40)
+    # data2 = b_stream.getWindow()
+    # print(data2.data)
