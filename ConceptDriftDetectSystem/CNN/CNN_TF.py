@@ -97,7 +97,6 @@ b_fc2 = bias_variable([L2_SIZE])
 
 h_fc1_flat = tf.reshape(h_fc1, [-1, IMAGE_SIZE_AT_FINAL * NUM_OF_2ND_KERNEL])       # 차원을 어떻게 설정해야할까(2)
 h_fc2 = tf.nn.relu(tf.matmul(h_fc1_flat, W_fc2) + b_fc2)
-
 '''
 
 # 드롭아웃 레이어
@@ -127,7 +126,8 @@ top_k_op = tf.nn.top_k(y_conv, 1, False, None)
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y_conv))
 train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))  # 정확히 맞춘 경우를 확인하려는 경우
-# correct_prediction = tf.nn.in_top_k(y_conv, tf.argmax(y_,1), THRESHOLD_FOR_CDD)        # 벡터 내에서 신뢰도 순으로 k순위 안에 정답이 있는지 확인하려는 경우
+# correct_prediction = tf.nn.in_top_k(y_conv, tf.argmax(y_,1), THRESHOLD_FOR_CDD)
+# 벡터 내에서 신뢰도 순으로 k순위 안에 정답이 있는지 확인하려는 경우
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))  # 정확도를 %로 표현
 correct_answer = tf.reduce_sum(tf.cast(correct_prediction, "int32"))  # 맞춘 갯수
 

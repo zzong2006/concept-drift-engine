@@ -14,21 +14,21 @@ class Window:
         self.partition = [i.partition for i in data]
         # self.offset = offsets # kafka에서 각 데이터에 대해 받았을 오프셋
         self.label = -1  # 신경망에서 정보를 얻기 전에는 모름
-        pass
+
 
     def setLabel(self, label):
         self.label = label
-        pass
+
 
     # 직접 접근해도 되나, 필요하다면 쓸 수 있는 함수
     def getData(self):
         return self.data
-        pass
+
 
     def getTime(self):
         return self.time
-        pass
+
 
     def getLabel(self):
         return self.label
-        pass
+

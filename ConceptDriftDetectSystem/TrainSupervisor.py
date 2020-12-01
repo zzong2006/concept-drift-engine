@@ -118,7 +118,6 @@ print("CNN 모델의 학습을 시작합니다. 패러미터는", MODEL_FOLDER, 
       int(config.get(section, 'BATCH SIZE')), TRAIN_NUM, int(config.get(section, 'NUM OF 1ST KERNEL')),
       int(config.get(section, 'NUM OF 2ND KERNEL')), int(config.get(section, 'L1 SIZE')), "입니다.\n")
 Train.train(MODEL_FOLDER, TRAIN_NUM, KEEP_PROB)
-pass
 
 print("")
 

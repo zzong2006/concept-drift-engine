@@ -18,7 +18,7 @@ class Experimenter:
 
     def result(self):
         # 모델 검출 결과 분석
-        # 맨 첫 구역은 1개라도 검출되면 false alarm인 것에 주의
+        # 맨 첫 구역은 1개라도 검출되면 false alarm 인 것에 주의
         correct_alarm = np.array(self.detect_counter[1:])
         np.putmask(correct_alarm, correct_alarm > 0, 1)
         correct_alarm = sum(correct_alarm)

@@ -1,6 +1,6 @@
-'''
-임의의 kafka의 임의 토픽에서 데이터를 지정된 수만큼 받아, 학습 데이터를 생성하는 모듈
-'''
+"""
+    임의의 kafka의 임의 토픽에서 데이터를 지정된 수만큼 받아, 학습 데이터를 생성하는 모듈
+"""
 from kafka import KafkaConsumer
 import configparser
 import timeit  # 실행시간 측정을 위한 모듈

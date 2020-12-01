@@ -24,125 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1836366e-bd16-4d42-bea4-bfc23086f3d6" name="Default" comment="코드 정리">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/AE(aymericdamien_ex)-cluster(170822).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/AE(aymericdamien_ex)-eval(170822).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Autoencoder_TF(sigmoid).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Datareduce.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Datareduce.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_reduce.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_reduce.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/(Server)TrainDataConstructor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/(Server)TrainDataConstructor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CNN_TF.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CNN_TF.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_CDdetect.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_CDdetect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/Clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/Clustering.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_Label_adjust.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_Label_adjust.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoP.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoW.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoW.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataStream.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataStream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Experimenter.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Experimenter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/TrainSupervisor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/TrainSupervisor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/X.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/X.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/client_async.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/cluster.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/codec.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/conn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/fetcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/group.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/multiprocess.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/simple.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/subscription_state.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/context.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/abstract.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/range.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/roundrobin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/consumer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/heartbeat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/protocol.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/errors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/future.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/compound_stat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/dict_reporter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/kafka_metric.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/measurable.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/measurable_stat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metric_config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metric_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metrics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metrics_reporter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/quota.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/avg.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/count.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/histogram.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/max_stat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/min_stat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/percentile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/percentiles.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/rate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/sampled_stat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/sensor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/total.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/default.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/hashed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/roundrobin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/buffer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/future.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/kafka.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/keyed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/record_accumulator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/sender.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/simple.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/abstract.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/commit.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/fetch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/frame.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/group.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/legacy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/message.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/metadata.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/offset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/pickle.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/produce.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/struct.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/types.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/_crc32c.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/abc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/default_records.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/legacy_records.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/memory_records.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/serializer/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/serializer/abstract.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/structs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/selectors34.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/six.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/socketpair.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/test_Autoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/test_Autoencoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManageDriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageDriver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -400,7 +287,7 @@
       <workItem from="1606323180575" duration="2883000" />
       <workItem from="1606725831601" duration="1211000" />
       <workItem from="1606747663166" duration="14000" />
-      <workItem from="1606811217171" duration="1744000" />
+      <workItem from="1606811217171" duration="2869000" />
     </task>
     <task id="LOCAL-00001" summary="코드 정리">
       <created>1606322191501</created>
@@ -409,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606322191501</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="코드 정리">
+      <created>1606813561485</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606813561485</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,10 +367,10 @@
     </state>
     <state x="610" y="243" key="SettingsEditor/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322832888" />
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598787276508" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606322192678">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606813562792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322192678" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606813562792" />
     <state x="828" y="364" width="652" height="312" key="cloudConfig.SelfSettingsDialog" timestamp="1606323269268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
