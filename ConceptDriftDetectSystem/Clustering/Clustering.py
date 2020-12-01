@@ -48,7 +48,6 @@ def KMeans_from_a_file(INPUT_FILE_PATH, CENTROIDS_SAVE_FILE_PATH, N_CLUSTERS):
     #              for k-mean clustering in a smart way to speed up convergence. 
 
     clustered = KMeans(n_clusters=N_CLUSTERS, init='k-means++', random_state=0)
-    # clustered = KMeans(n_clusters = N_CLUSTERS, init='k-means++', random_state = 1214, verbose = 1, n_init = 10, tol= 1e-18, n_jobs = -3)
 
     # Compute k-means clustering.
     clustered.fit(all_data)

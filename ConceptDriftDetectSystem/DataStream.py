@@ -6,22 +6,26 @@ DataStreamV2
 import Window
 import time
 import numpy as np
+from kafka import KafkaConsumer
 
 class Unit:
     '''
     스트림에서 하나의 데이터를 저장하는 단위인 Unit 클래스
     '''
-    def __init__(self, value, offset= -1, partition=-1):
+
+    def __init__(self, value, offset=-1, partition=-1):
         self.value = value
         self.offset = offset
         self.partition = partition
         pass
+
 
 class Stream:
     '''
     각 하위 클래스들의 중복된 코드들을 담는 부모 클래스.
     이 클래스만으로는 데이터를 가져오지 못하기 때문에 실제 스트림의 역할을 하지 못한다.
     '''
+
     def __init__(self, window_size, step_size):
         '''
         윈도우 관련 변수 초기화
@@ -37,7 +41,7 @@ class Stream:
         현재 차있는 윈도우를 반환하는 함수. 반환 후 slideWindow 함수를 호출한다.
         '''
         out_window = Window.Window(self.window, self.time)
-        out_window.data = (out_window.data - np.mean(out_window.data))/np.std(out_window.data)
+        out_window.data = (out_window.data - np.mean(out_window.data)) / np.std(out_window.data)
         self.slideWindow()
         return out_window
         pass
@@ -66,6 +70,7 @@ class FileAsStream(Stream):
     파일을 읽어 이를 스트림으로 사용하는 클래스.
     과거의 클래스로, 현재의 클래스와 호환되지 않을 것(offset 관련).
     '''
+
     def __init__(self, file_name, window_size, step_size):
         '''
         윈도우를 초기화하는 함수
@@ -74,7 +79,6 @@ class FileAsStream(Stream):
 
         self.data_file = open(file_name, 'r')
         self.window = [self.getData() for i in range(window_size)]
-        pass
 
     def getData(self):
         '''
@@ -95,26 +99,28 @@ class FileAsStream(Stream):
         return a_data
         pass
 
+
 class KafkaAsStream(Stream):
     def __init__(self, stream_addr, topic, window_size, step_size, index):
         '''
         윈도우를 초기화하는 함수.
         '''
-        from kafka import KafkaConsumer
+
 
         Stream.__init__(self, window_size, step_size)
         self.timeout = 10
         self.index = index
         self.consumer = KafkaConsumer(topic, bootstrap_servers=stream_addr,
-                                auto_offset_reset='earliest',
-                                max_poll_records = 1,
-                                consumer_timeout_ms=5000
-                                )
+                                      auto_offset_reset='earliest',
+                                      max_poll_records=1,
+                                      consumer_timeout_ms=5000
+                                      )
         # Unit class의 Data list를 window 변수에 담는다.
         self.window = [self.getData() for i in range(window_size)]
+
     def getData(self):
         count = 0
-        while(count <= 10):
+        while (count <= 10):
             temp = self.consumer.poll()
             if temp != {}:
                 records = list(temp.values())
@@ -125,11 +131,12 @@ class KafkaAsStream(Stream):
             else:
                 print('Kafka Server 에서 data 를 기다리는 중.. ({}/{} sec)'.format(count, self.timeout))
                 count += 2
-                time.sleep(2)       # 2초후에 다시 시도
+                time.sleep(2)  # 2초후에 다시 시도
         raise ValueError("Kafka Server 에서 10초 동안 data 입력이 없습니다.")
 
-if(__name__ == '__main__'):
-    a_stream = FileAsStream("./Data/stream1.raw", 1000, 40)
+
+if __name__ == '__main__':
+    a_stream = FileAsStream("./Data/raw_data.csv", 1000, 40)
     data = a_stream.getWindow()
     print(data.data)
     '''
@@ -137,7 +144,7 @@ if(__name__ == '__main__'):
 
     data = a_stream.getWindow()
     #print(data.data)
-    ''' 
+    '''
 
     # b_stream = KafkaAsStream("165.132.214.219:9093", "test_stream", 1000, 40)
     # data2 = b_stream.getWindow()

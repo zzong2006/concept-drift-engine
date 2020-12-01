@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("./sample/MNIST_data", one_hot=True, validation_size = 100)
+
+mnist = input_data.read_data_sets("./sample/MNIST_data", one_hot=True, validation_size=100)
 
 # Parameters
 display_step = 10
@@ -24,7 +25,7 @@ config.read(CONF_FILE)
 
 # 전역 설정값 로드
 section = "GENERAL"
-DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')     # 데이터 폴더는 공통으로 사용할 것
+DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')  # 데이터 폴더는 공통으로 사용할 것
 print(DATA_FOLDER)
 section = "STREAM DATA"
 MODEL_SAVE_FOLDER = "./" + config.get(section, 'WINDOW SIZE') + "/"
@@ -33,6 +34,7 @@ section = "DATA REDUCING"
 MODEL_SAVE_FOLDER = "./" + config.get(section, 'MODEL SAVE FOLDER NAME') + "/"
 train_num = int(config.get(section, 'TRAIN NUM'))
 BATCH_SIZE = int(config.get(section, 'BATCH SIZE'))
+
 
 ################################################
 # 이하 신경망 학습 코드
@@ -54,13 +56,13 @@ def train():
         #     print("checkpoint 파일이 존재하지 않습니다. 프로그램을 종료합니다.")
         #     exit()
 
-        coord = tf.train.Coordinator()                          # 기본 큐 코디네이터 생성. 스레드들을 관리 가능
-        threads = tf.train.start_queue_runners(sess = sess, coord=coord)     # 큐 러너 생성.
+        coord = tf.train.Coordinator()  # 기본 큐 코디네이터 생성. 스레드들을 관리 가능
+        threads = tf.train.start_queue_runners(sess=sess, coord=coord)  # 큐 러너 생성.
 
         # Training cycle
         # 1회 배치를 꺼냄
         for i in range(1, train_num + 1):
-            #batch_values = sess.run(Input.values)
+            # batch_values = sess.run(Input.values)
 
             batch_values, _ = mnist.train.next_batch(BATCH_SIZE)
 
@@ -97,17 +99,18 @@ def train():
         print("Original Images")
         plt.figure(figsize=(n, n))
         plt.imshow(canvas_orig, origin="upper", cmap="gray")
-        #plt.imshow(canvas_orig, origin="upper")
+        # plt.imshow(canvas_orig, origin="upper")
         plt.show()
 
         print("Reconstructed Images")
         plt.figure(figsize=(n, n))
         plt.imshow(canvas_recon, origin="upper", cmap="gray")
-        #plt.imshow(canvas_recon, origin="upper")
+        # plt.imshow(canvas_recon, origin="upper")
         plt.show()
 
         coord.request_stop()
         coord.join(threads)
+
 
 #######################################################################################################
 # 단독으로 실행될 일이 없을 것 같음

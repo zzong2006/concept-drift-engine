@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,48 +22,125 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1836366e-bd16-4d42-bea4-bfc23086f3d6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
+    <list default="true" id="1836366e-bd16-4d42-bea4-bfc23086f3d6" name="Default" comment="코드 정리">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/(Server)TrainDataConstructor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/(Server)TrainDataConstructor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/(Test)Autoencoder_tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/(Test)Autoencoder_tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/AE(aymericdamien_ex)-cluster(170822).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/AE(aymericdamien_ex)-eval(170822).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Autoencoder_TF(sigmoid).py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Datareduce.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Datareduce.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/test_Autoencoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CDdetector-label.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CDdetector-label.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/ClusterCentroidsReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/ClusterCentroidsReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_reduce.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_reduce.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Input_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Autoencoder/Train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CNN_TF.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CNN_TF.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_CDdetect.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/Input_CDdetect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/Clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/Clustering.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/example.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/sklearn_Cluster_KMeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/sklearn_Cluster_KMeans.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_Label_adjust.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_Label_adjust.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoP.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoP.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoW.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_PtoW.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataGenerator/StreamDataGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataGenerator/StreamDataGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataGenerator/StreamDataSplitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataGenerator/StreamDataSplitter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataStream.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/DataStream.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Experimenter.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Experimenter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Realtime_plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Realtime_plotting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/TrainSupervisor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/TrainSupervisor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/Window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/X.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/X.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/autoEncoderTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/autoEncoderTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/changes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/client_async.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/cluster.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/conn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/fetcher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/group.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/multiprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/simple.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/consumer/subscription_state.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/context.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/abstract.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/range.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/assignors/roundrobin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/consumer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/heartbeat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/coordinator/protocol.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/errors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/future.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/compound_stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/dict_reporter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/kafka_metric.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/measurable.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/measurable_stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metric_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metric_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metrics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/metrics_reporter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/quota.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/avg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/count.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/histogram.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/max_stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/min_stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/percentile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/percentiles.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/rate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/sampled_stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/sensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/metrics/stats/total.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/default.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/hashed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/partitioner/roundrobin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/buffer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/future.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/kafka.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/keyed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/record_accumulator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/sender.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/producer/simple.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/abstract.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/commit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/fetch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/frame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/group.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/legacy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/message.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/metadata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/offset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/pickle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/produce.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/struct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/protocol/types.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/_crc32c.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/abc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/default_records.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/legacy_records.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/memory_records.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/record/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/serializer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/serializer/abstract.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/structs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/selectors34.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/six.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/vendor/socketpair.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/kafka/version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/test_Autoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptDriftDetectSystem/test/test_Autoencoder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManageDriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageDriver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
@@ -125,7 +205,15 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="server" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="server" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -138,48 +226,7 @@
       <recent name="C:\Users\woosung\Desktop\CDDSystem\server\ConceptDriftDetectSystem\Data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.example">
-    <configuration name="CDdetector-label" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CDdetector-label.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ConceptDriftDetector_Label_adjust" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConceptDriftDetectSystem" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConceptDriftDetectSystem/ConceptDriftDetector_Label_adjust.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.ManageDriver">
     <configuration name="DataStream" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,6 +243,72 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConceptDriftDetectSystem/DataStream.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Experimenter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConceptDriftDetectSystem" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConceptDriftDetectSystem/Experimenter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ManageDriver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ManageDriver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -228,6 +341,9 @@
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -243,39 +359,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sklearn_Cluster_KMeans" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConceptDriftDetectSystem/Clustering/sklearn_Cluster_KMeans.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.DataStream" />
       <item itemvalue="Python.example" />
-      <item itemvalue="Python.ConceptDriftDetector_Label_adjust" />
-      <item itemvalue="Python.CDdetector-label" />
-      <item itemvalue="Python.sklearn_Cluster_KMeans" />
+      <item itemvalue="Python.Experimenter" />
+      <item itemvalue="Python.Server" />
+      <item itemvalue="Python.ManageDriver" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.example" />
-        <item itemvalue="Python.sklearn_Cluster_KMeans" />
-        <item itemvalue="Python.CDdetector-label" />
+        <item itemvalue="Python.ManageDriver" />
+        <item itemvalue="Python.Server" />
+        <item itemvalue="Python.Experimenter" />
         <item itemvalue="Python.DataStream" />
-        <item itemvalue="Python.ConceptDriftDetector_Label_adjust" />
+        <item itemvalue="Python.example" />
       </list>
     </recent_temporary>
   </component>
@@ -299,8 +396,20 @@
       <workItem from="1598786800957" duration="75000" />
       <workItem from="1598787216931" duration="1051000" />
       <workItem from="1606320071985" duration="1405000" />
-      <workItem from="1606321511294" duration="618000" />
+      <workItem from="1606321511294" duration="1646000" />
+      <workItem from="1606323180575" duration="2883000" />
+      <workItem from="1606725831601" duration="1211000" />
+      <workItem from="1606747663166" duration="14000" />
+      <workItem from="1606811217171" duration="1744000" />
     </task>
+    <task id="LOCAL-00001" summary="코드 정리">
+      <created>1606322191501</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606322191501</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,6 +427,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="코드 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="코드 정리" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1606321324476">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -331,45 +444,60 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321686027" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606321541345">
+    <state x="92" y="92" width="1736" height="856" key="DirDiffDialog" timestamp="1606322916230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321541345" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1606321541345">
+    <state x="92" y="92" width="1736" height="856" key="DirDiffDialog/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322916230" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606747675381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321541345" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1606321541345">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606747675381" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1606323172121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321541345" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1606321541345">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606323172121" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1606323172121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321541345" />
-    <state x="610" y="243" key="SettingsEditor" timestamp="1606321398998">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606323172121" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1606323172121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="610" y="243" key="SettingsEditor/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321398998" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606323172121" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1606323172121">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606323172121" />
+    <state x="610" y="243" key="SettingsEditor" timestamp="1606322832888">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="610" y="243" key="SettingsEditor/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322832888" />
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598787276508" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606322192678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322192678" />
+    <state x="828" y="364" width="652" height="312" key="cloudConfig.SelfSettingsDialog" timestamp="1606323269268">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="828" y="364" width="652" height="312" key="cloudConfig.SelfSettingsDialog/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606323269268" />
+    <state x="668" y="252" width="584" height="536" key="find.popup" timestamp="1606322898456">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="252" width="584" height="536" key="find.popup/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322898456" />
     <state x="843" y="250" width="446" height="539" key="ftp.server.browser" timestamp="1606321313756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="843" y="250" width="446" height="539" key="ftp.server.browser/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321313756" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606321386890">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606322797973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606321386890" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1080.-446.1080.1880@0.0.1920.1040" timestamp="1606322797973" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598787226377" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ManageDriver.py</url>
-          <line>131</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ConceptDriftDetectSystem/CNN/CDdetector.py</url>
           <line>3</line>
@@ -412,7 +540,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/concept_drift_engine$DataStream.coverage" NAME="DataStream Coverage Results" MODIFIED="1606321517234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ConceptDriftDetectSystem" />
+    <SUITE FILE_PATH="coverage/concept_drift_engine$DataStream.coverage" NAME="DataStream Coverage Results" MODIFIED="1606322292636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ConceptDriftDetectSystem" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">

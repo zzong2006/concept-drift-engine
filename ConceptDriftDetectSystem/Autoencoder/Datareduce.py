@@ -86,17 +86,11 @@ def datareduce(num_of_window_data, OUTPUT_DATA_PATH):
                 # 생성된 데이터들을 순회하며 한 줄씩 써내려감
                 for x in encoded:
                     out_file_csv.writerow(x)
-                    pass
-                pass
-            pass
 
         coord.request_stop()
         coord.join(threads)
 
         out_file.close()
-
-        # out_file_temp.close()
-    pass
 
 
 #######################################################################################################

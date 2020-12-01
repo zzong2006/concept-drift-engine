@@ -22,7 +22,7 @@ class Experimenter:
         correct_alarm = np.array(self.detect_counter[1:])
         np.putmask(correct_alarm, correct_alarm > 0, 1)
         correct_alarm = sum(correct_alarm)
-        print("Currect Alarm:", correct_alarm)
+        print("Correct Alarm:", correct_alarm)
 
         false_alarm = sum(self.detect_counter) - correct_alarm
         print("False Alarm:", false_alarm)

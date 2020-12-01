@@ -29,24 +29,6 @@ WINDOW_DATA_PATH = DATA_FOLDER + "/" + config.get(section, 'WINDOW DATA FILE NAM
 WINDOW_SIZE = int(config.get(section, 'WINDOW SIZE'))
 SLIDE_STEP_SIZE = int(config.get(section, 'SLIDE STEP SIZE'))
 
-# # CNN 관련 설정값
-# # 클러스터링 관련 설정값
-# section = "CLUSTERING"  # ini 파일의 섹션
-# CLUSTER_AMOUNT = int(config.get(section, 'CLUSTER AMOUNT'))     # 생성할 클러스터 수
-# LABEL_ATTATCHED_WINDOW_DATA_PATH = DATA_FOLDER + "/" + config.get(section, 'LABEL ATTATCHED WINDOW DATA FILE NAME')
-# CENTROIDS_SAVE_FILE_PATH = DATA_FOLDER + "/" + config.get(section, 'CENTROIDS SAVE FILE NAME')
-#
-# section = "CNN"  # ini 파일의 섹션
-# MODEL_FOLDER = "./" + config.get(section, 'MODEL SAVE FOLDER NAME') + "/"
-# TRAIN_NUM = int(config.get(section, 'TRAIN NUM'))
-# KEEP_PROB = float(config.get(section, 'KEEP PROB'))
-#
-# from CNN import Train
-#
-# print("CNN 모델의 학습을 시작합니다. 패러미터는", MODEL_FOLDER, LABEL_ATTATCHED_WINDOW_DATA_PATH, int(config.get(section, 'BATCH SIZE')), TRAIN_NUM, int(config.get(section, 'NUM OF 1ST KERNEL')), int(config.get(section, 'NUM OF 2ND KERNEL')), int(config.get(section, 'L1 SIZE')),"입니다.\n")
-# Train.train(MODEL_FOLDER, TRAIN_NUM, KEEP_PROB)
-# pass
-#
 
 ######################################
 # 1-2. 스트림 데이터를 읽어 윈도우로 분할한다

@@ -5,7 +5,7 @@ import tensorflow as tf
 #############################################################################
 with tf.device('/cpu:0'):
     ROW_LENGTH = 121        # 레이블 포함
-    NUM_OF_BATCH = 1;
+    NUM_OF_BATCH = 1
 
     # define filename queue
     filename_queue = tf.train.string_input_producer(["./data/concept_drift_detect.csv"])

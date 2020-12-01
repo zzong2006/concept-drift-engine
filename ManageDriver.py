@@ -4,6 +4,7 @@
 Concept Drift 검출 모델을 다루기 위한 모듈이다.
 이 모듈 내 함수들을 통해서만 검출 모델을 다루도록 한다.
 '''
+
 import shutil
 import os  # 시스템 제어(폴더 복사 등)를 위해 사용
 import pandas as pd
@@ -24,7 +25,7 @@ ftp_user = config.get(section, 'USER')
 ftp_passwd = config.get(section, 'PASSWD')
 
 
-def setWithKafka(id, topic, data_amount, dst_ip, dst_port):
+def set_with_kafka(id, topic, sever, data_amount, dst_ip, dst_port):
     '''
     메시지를 처음 받았을 때 호출될 함수. id를 받아, 독립적으로 사용할 검출 모델을 하나 구성해준다.
     모델 구성시, 학습 데이터를 생성
@@ -49,7 +50,7 @@ def setWithKafka(id, topic, data_amount, dst_ip, dst_port):
 
     # 스트림 데이터 관련 세팅
     section = "STREAM DATA"
-    config.set(section, "KAFKA SERVER", str(kafkaserver))
+    config.set(section, "KAFKA SERVER", str(sever))
     config.set(section, "KAFKA TOPIC", str(topic))
     config.set(section, "DATA AMOUNT", str(data_amount))
 
@@ -60,7 +61,7 @@ def setWithKafka(id, topic, data_amount, dst_ip, dst_port):
     return 0
 
 
-def setWithFileURL(id, src_name, topic, file_url):
+def set_with_file_url(id, src_name, topic, file_url):
     '''
     메시지를 처음 받았을 때 호출될 함수. 
     id를 받아, 독립적으로 사용할 검출 모델을 하나 구성해준다.
@@ -114,7 +115,7 @@ def setWithFileURL(id, src_name, topic, file_url):
     conf_file.close()
 
 
-def trainAModel(id, src_name):
+def train_model(id, src_name):
     '''
     id 폴더 내의 데이터를 학습시킴
     '''
@@ -140,7 +141,7 @@ def trainAModel(id, src_name):
 
 
 # ftp 에서 입력받은 훈련 파일을 일련의 정수형태로 정제한다.
-def preprocessTrainfile(filename, real):
+def preprocessing_train_file(filename, real):
     # ini 설정을 불러오기 위한 변수 및 객체
     CONF_FILE = "./" + filename + "/options.ini"
     config = configparser.ConfigParser()
@@ -160,7 +161,7 @@ def preprocessTrainfile(filename, real):
     os.chdir("..")
 
 
-def setKafkaTopic(id, src_name, topic, real):
+def set_kafka_topic(id, src_name, topic, real):
     folder_name = str(id + '.' + src_name)  # 폴더명은 호출한 유저명.소스이름
     index = real[0]['COLUMN_INDEX']  # comma 로 나눠진 value 중 어느 index 에 위치하는지
 
@@ -189,9 +190,9 @@ def setKafkaTopic(id, src_name, topic, real):
 
 
 def delete_model(model_name):
-    '''
+    """
     모델 폴더들을 삭제하는 함수
-    '''
+    """
     if os.path.exists(model_name):
         print("모델 폴더({})를 삭제합니다.".format(model_name))
         shutil.rmtree(model_name)  # 폴더 삭제 함수
@@ -199,10 +200,10 @@ def delete_model(model_name):
         print("해당 모델 폴더({})가 없습니다.".format(model_name))
 
 
-def detectStart(id):
-    '''
+def start_detect(id):
+    """
     id 폴더의 모델을 이용하여 드리프트 검출을 수행
-    '''
+    """
     if os.path.exists(id):
         os.chdir("./" + str(id))
         # 입력을 받아와야함. result = os.system(,,,
@@ -213,7 +214,7 @@ def detectStart(id):
         return -1
 
 
-def detectStop(id):
+def stop_detect(id):
     '''
     id 폴더의 모델을 이용하여 드리프트 검출을 정지시킨다.
     '''

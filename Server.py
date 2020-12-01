@@ -9,11 +9,8 @@ import json  # JSON 인코딩 및 디코딩을 위한 모듈
 import pymysql
 from multiprocessing import Process  # 멀티 프로세싱 처리를 위함. os 상관없이 동작
 import urllib.request
+import ManageDriver as md   # 내부 모듈
 
-'''
-내부 모듈
-'''
-import ManageDriver as MD
 
 # ini 설정을 불러오기 위한 변수 및 객체
 CONF_FILE = "server_options.ini"
@@ -34,10 +31,10 @@ db_db = config.get(section, 'DB')
 db_charset = config.get(section, 'CHARSET')
 
 
-def getFromDB(a_json):
-    '''
+def get_from_db(a_json):
+    """
     원격지 DB에 접속하여, 입력된 메시지 내 사용자 및 소스에 해당하는 열 정보을 반환하는 함수
-    '''
+    """
     ###################################
     # DB 질의 준비. 커넥션엔 타임아웃이 있으므로, 여기서는 매번 새롭게 연결한다.
     conn = pymysql.connect(host=db_ip, port=db_port, user=db_user, password=db_passwd, db=db_db, charset=db_charset)
@@ -80,7 +77,7 @@ def getFromDB(a_json):
       'F_SRC': 26}
     '''
 
-    if (a_json['message'] == 'new-src'):
+    if a_json['message'] == 'new-src':
         # 소스 예제 파일 읽기(FTP): TBL_SRC$F_TEST_DATA로 TBL_SRC_TEST_DATA에 접근하여 FILE_PATH를 읽고 파일을 가져온다.
         sql4 = 'select * from tbl_src where NAME="' + str(a_json['src-name']) + '" and ' + 'F_OWNER="' + str(
             user_idx) + '"'
@@ -98,7 +95,7 @@ def getFromDB(a_json):
         conn.close()
         return result3, file_path
 
-    if (a_json['message'] == 'activate-src'):
+    if a_json['message'] == 'activate-src':
         # 이 소스의 kafka topic 이름을 알고자 함.
         sql6 = 'select * from tbl_src where NAME="' + str(a_json['src-name']) + '" and ' + 'F_OWNER="' + str(
             user_idx) + '"'
@@ -124,20 +121,21 @@ def change_status(a_json, result):
         out = curs.fetchall()
         user_idx = out[0]['IDX']
 
-        if (result != -1):
+        if result != -1:
             query = 'PREPARED'
         else:
             query = 'NOT_USED'
 
         sql = "UPDATE tbl_src SET CONCEPT_DRIFT_STATUS='%s' WHERE NAME='%s' and F_OWNER='%s'" % (
             query, str(a_json['src-name']), str(user_idx))
-        logSql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})".format(user_idx, '"INFO"',
-                                                                                                    '"[CONCEPT DRIFT]Model of source({}) status is changed to {}"'.format(
-                                                                                                        a_json[
-                                                                                                            'src-name'],
-                                                                                                        query))
+        log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})"
+        log_sql = log_sql.format(user_idx, '"INFO"',
+                                 '"[CONCEPT DRIFT]Model of source({}) status is changed to {}"'.format(
+                                     a_json[
+                                         'src-name'],
+                                     query))
 
-        curs.execute(logSql)
+        curs.execute(log_sql)
         curs.execute(sql)
         conn.commit()
     except Exception as ex:
@@ -147,7 +145,10 @@ def change_status(a_json, result):
 
 
 # log type : 1; make model, 2; concept activate, 3; concept stop, 4; model delete
-def sendLog(a_json, logtype):
+def send_log(a_json, logtype):
+    """
+    log 정보를 db로 전송
+    """
     conn = pymysql.connect(host=db_ip, port=db_port, user=db_user, password=db_passwd, db=db_db, charset=db_charset)
     curs = conn.cursor(pymysql.cursors.DictCursor)
 
@@ -159,23 +160,26 @@ def sendLog(a_json, logtype):
         conn.commit()
 
         if logtype == 1:
-            log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})".format(user_idx,
-                                                                                                         '"INFO"',
-                                                                                                         '"[CONCEPT DRIFT]Model of source({}) is generated."'.format(
-                                                                                                             a_json[
-                                                                                                                 'src-name']))
+            log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})"
+            log_sql = log_sql.format(user_idx,
+                                     '"INFO"',
+                                     '"[CONCEPT DRIFT]Model of source({}) is generated."'.format(
+                                         a_json[
+                                             'src-name']))
         elif logtype == 2:
-            log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})".format(user_idx,
-                                                                                                         '"INFO"',
-                                                                                                         '"[CONCEPT DRIFT]Concept Drift Detection (Source: {}) is activated."'.format(
-                                                                                                             a_json[
-                                                                                                                 'src-name']))
+            log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})"
+            log_sql = log_sql.format(user_idx,
+                                     '"INFO"',
+                                     '"[CONCEPT DRIFT]Concept Drift Detection (Source: {}) is activated."'.format(
+                                         a_json[
+                                             'src-name']))
         elif logtype == 3:
-            log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})".format(user_idx,
-                                                                                                         '"INFO"',
-                                                                                                         '"[CONCEPT DRIFT]Concept Drift Detection (Source: {}) is stopped."'.format(
-                                                                                                             a_json[
-                                                                                                                 'src-name']))
+            log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})"
+            log_sql = log_sql.format(user_idx,
+                                     '"INFO"',
+                                     '"[CONCEPT DRIFT]Concept Drift Detection (Source: {}) is stopped."'.format(
+                                         a_json[
+                                             'src-name']))
         elif logtype == 4:
             log_sql = "INSERT INTO tbl_log(F_USER,LOGGING_TYPE,LOGGING_MESSAGE) VALUES({},{},{})"
             log_sql = log_sql.format(user_idx,
@@ -193,36 +197,38 @@ def sendLog(a_json, logtype):
 
 
 def determine_n_proc(a_json):
-    '''
+    """
     임의의 json 형식 메시지를 받아 메시지에 해당하는 동작을 수행하는 모듈
-    '''
+    """
     # 컨셉드리프트 분석 모델 생성: 소스 예제 파일에서 타겟 컬럼을 기반으로 컨셉 드리프트 모델을 생성한다.
     if a_json['message'] == "new-src":  # SET(kafkaservers, topic, dst_ip_port)
         # print("새로운 모듈을 세트하기 위하여 DB에서 사용자 정보를 가져옵니다.")
-        real_value, test_data_path = getFromDB(a_json)
+        real_value, test_data_path = get_from_db(a_json)
         topic_name = 'NULL'
-        result = MD.setWithFileURL(a_json['user-id'], a_json['src-name'], topic_name, test_data_path)
+        result = md.set_with_file_url(a_json['user-id'], a_json['src-name'], topic_name, test_data_path)
         change_status(a_json, result)
         if result != -1:
-            MD.preprocessTrainfile(a_json['user-id'] + "." + a_json['src-name'], real_value)
-            MD.trainAModel(a_json['user-id'], a_json['src-name'])
-        sendLog(a_json, 1)
+            md.preprocessing_train_file(a_json['user-id'] + "." + a_json['src-name'], real_value)
+            md.train_model(a_json['user-id'], a_json['src-name'])
+        send_log(a_json, 1)
         # 소스 정보가 없기 때문에, 일단 하드 코딩
+
     # 데이터 스트림 읽기: 데이터 스트림에서 타겟 컬럼을 추출하여 컨셉 드리프트를 분석한다.
     elif a_json['message'] == "activate-src":  # SET(kafkaservers, topic, dst_ip_port)
-        sendLog(a_json, 2)
-        real_value, topic_name = getFromDB(a_json)
-        result = MD.setKafkaTopic(a_json['user-id'], a_json['src-name'], topic_name, real_value)
+        send_log(a_json, 2)
+        real_value, topic_name = get_from_db(a_json)
+        result = md.set_kafka_topic(a_json['user-id'], a_json['src-name'], topic_name, real_value)
         if result != -1:
-            MD.detectStart(a_json['user-id'] + "." + a_json['src-name'])  # 모델을 통하여 검출 시작
+            md.start_detect(a_json['user-id'] + "." + a_json['src-name'])  # 모델을 통하여 검출 시작
+
     # 데이터 스트림 읽기 중단: 데이터 스트림을 읽지 않고 컨셉 드리프트 분석을 중단한다.
     elif a_json['message'] == "deactivate-src":
-        _ = getFromDB(a_json)
-        MD.detectStop(a_json['user-id'] + "." + a_json['src-name'])
-        sendLog(a_json, 3)
+        _ = get_from_db(a_json)
+        md.stop_detect(a_json['user-id'] + "." + a_json['src-name'])
+        send_log(a_json, 3)
     elif a_json['message'] == "destroy-src":
-        MD.delete_model(a_json['user-id'] + "." + a_json['src-name'])
-        sendLog(a_json, 4)
+        md.delete_model(a_json['user-id'] + "." + a_json['src-name'])
+        send_log(a_json, 4)
         # change_status(a_json, -1) # change to "NOT USED", Plan-Manager 에서 DB를 지워주기 때문에 상태를 바꾸지 않아도 될듯.
     else:
         print('wrong message ! : {}'.format(a_json))
@@ -231,15 +237,14 @@ def determine_n_proc(a_json):
 # 메인 루프
 if __name__ == '__main__':
     ###################################
-    # 메인 루프 전처리 작업
-    ###################################
     # 메시지 소켓 통신 준비
 
+    # 외부 ip 알아내기
     ipmessage = urllib.request.urlopen("http://checkip.dyndns.org").read().decode("utf-8")
     external_ip = ''.join(c for c in ipmessage if c.isdigit() or c == '.')
 
     # inner ip address = "127.0.0.1"
-    # external ip address = '165.132.214.219'
+    # external ip address = '165.132.214.219' (연구실 사용 ip)
     s = socket.socket()
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # 소켓 최적화 함수
     s.bind((external_ip, msg_port))  # 소켓 바인딩
@@ -258,6 +263,7 @@ if __name__ == '__main__':
         else:
             # Halts
             print('[Waiting for response...]')
+
             received = json.loads(c.recv(1024).decode('utf-8'))
             print(received)
             p = Process(target=determine_n_proc, args=(received,))  # 프로세스 하나를 생성

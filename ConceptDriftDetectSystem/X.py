@@ -1,5 +1,5 @@
 '''
-PtoP와 PtoW를 구현하기 위해 윈도우 X 를 구현한 클래스이다.
+PtoW를 구현하기 위해 윈도우 X 를 구현한 클래스이다.
 persistent 속성을 구분하기 위하여 사용하는 리스트 세트. 조금 특이한 형태의 queue 자료형이라 생각하면 된다.
 Window 객체를 보관하게 할까 싶기도 했으나, 참조가 번거로워지고 중복 import를 야기하므로 객체의 속성만을 리스트들로 관리하기로 했다
 X는 윈도우 데이터 자체는 보관하지 않는다
@@ -7,7 +7,7 @@ X는 윈도우 데이터 자체는 보관하지 않는다
 import numpy as np
 
 
-def overThresholdAmount(ARRAY, THRESHOLD):
+def over_threshold_amount(ARRAY, THRESHOLD):
     diffs = np.array(ARRAY)
     np.putmask(diffs, diffs >= THRESHOLD, 1)
     np.putmask(diffs, diffs < THRESHOLD, 0)

@@ -57,7 +57,7 @@ def overThresholdAmount(ARRAY, THRESHOLD):
     return int(np.sum(diffs, 0))
 
 
-def transmitResult(offset, partition):
+def transmit_result(offset, partition):
     try:
         s = socket.socket()
         s.connect((DST_IP, int(DST_PORT)))
@@ -74,7 +74,7 @@ def transmitResult(offset, partition):
     return 0
 
 
-def drawSerialData(strData, currData, colorRange, current):
+def draw_serial_data(strData, currData, colorRange, current):
     fig, ax = plt.subplots()
     idx = np.arange(len(strData))
     color = np.array(['black' for _ in range(len(strData))], dtype=object)
@@ -169,20 +169,20 @@ with tf.Session(config=config) as sess:
     # print(len(X.data))
 
     # 이 시점에서 레퍼런스 윈도우 및 X 준비 완료
-    while (True):  # ::::::::::::::조건 나중에 변경해야 할 것임. 스트림의 끝을 어떻게 감지하지?::::::::::::::
+    while True:  # ::::::::::::::조건 나중에 변경해야 할 것임. 스트림의 끝을 어떻게 감지하지?::::::::::::::
         # 페이즈 1
         # 아래 과정에서 레퍼런스 윈도우와 X 내 과반수의 차이가 임계값을 넘겼는지 확인. 방법 2 수행과정 1에 해당
         diff_ref_X = X.differenceAgainstALabel(reference_window.label)
         # 레퍼런스 윈도우와 X 내의 윈도우들이 충분히 다른가?(과반수가 임계값을 넘겼는가? 윈도우가 8개였다면 5이상, 윈도우가 9개였다면 5이상) 달랐다면 페이즈2로 넘어감
         # print(overThresholdAmount(diff_ref_X, THRESHOLD_TO_TRIGGER))
-        if (overThresholdAmount(diff_ref_X, THRESHOLD_TO_TRIGGER) > math.floor(X.length / 2)):
+        if overThresholdAmount(diff_ref_X, THRESHOLD_TO_TRIGGER) > math.floor(X.length / 2):
             # print(X.times[0], "시점에서 현재 concept과 크게 다른 concept 구간이 등장했습니다. drift가 시작되었으며, 지금부터 concept이 안정화되는 구간을 찾습니다.")
             # 페이즈 2 시작
-            while (True):
+            while True:
                 # 아래 과정에서 X의 선두 윈도우와 X 내 과반수의 차이가 임계값 이내인지 확인. 방법 2 수행과정 2에 해당
                 diff_X1_X = X.differenceAgainstALabel(X.labels[-1])
                 # 레퍼런스 윈도우와 X 내의 윈도우들이 충분히 다른가?(과반수가 임계값을 넘겼는가? 윈도우가 8개였다면 5이상, 윈도우가 9개였다면 5이상) 달랐다면 페이즈2로 넘어감
-                if (overThresholdAmount(diff_X1_X, THRESHOLD_TO_TRIGGER) <= math.ceil(X.length / 2)):
+                if overThresholdAmount(diff_X1_X, THRESHOLD_TO_TRIGGER) <= math.ceil(X.length / 2):
                     # print(X.times[0], "시점에서 안정화 된 concept 구간이 등장했습니다. drift가 종료되었으며, 지금부터 drift가 발생하는 구간을 찾습니다.")
                     print(X.times[-1], "시점에서 개념 변화가 검출되었습니다.. offset은", X.offsets[-1][-1], "이며, partition은",
                           X.partitions[-1][-1], "입니다.")
@@ -192,8 +192,8 @@ with tf.Session(config=config) as sess:
                         plottingColor = np.vstack((plottingColor,
                                                    np.array(
                                                        [curr - SLIDE_STEP_SIZE, curr + WINDOW_SIZE - SLIDE_STEP_SIZE])))
-                    transmitResult(X.offsets[-1][-1], X.partitions[-1][-1])
-                    drawSerialData(global_serialData, X.data[-1], plottingColor, curr)
+                    transmit_result(X.offsets[-1][-1], X.partitions[-1][-1])
+                    draw_serial_data(global_serialData, X.data[-1], plottingColor, curr)
 
                     # 변화한 concept을 기준으로 다시 drift 검출을 하기 위하여 레퍼런스 윈도우를 X의 최후 윈도우로 지정
                     reference_window.label = X.labels[-1]

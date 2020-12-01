@@ -25,7 +25,7 @@ config.read(CONF_FILE)
 
 # 전역 설정값 로드
 section = "GENERAL"
-DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')     # 데이터 폴더는 공통으로 사용할 것
+DATA_FOLDER = "./" + config.get(section, 'DATA FOLDER NAME')  # 데이터 폴더는 공통으로 사용할 것
 
 section = "STREAM DATA"
 MODEL_SAVE_FOLDER = "./" + config.get(section, 'WINDOW SIZE') + "/"
@@ -35,6 +35,7 @@ MODEL_SAVE_FOLDER = "./" + config.get(section, 'MODEL SAVE FOLDER NAME') + "/"
 
 train_num = int(config.get(section, 'TRAIN NUM'))
 BATCH_SIZE = int(config.get(section, 'BATCH SIZE'))
+
 
 ################################################
 # 이하 신경망 학습 코드
@@ -53,13 +54,13 @@ def train():
             print("checkpoint 파일이 이미 존재합니다. 삭제하고 진행하겠습니다.")
             tf.gfile.DeleteRecursively(MODEL_SAVE_FOLDER)
             sess.run(tf.global_variables_initializer())
-            #saver.restore(sess, SAVE_DIR)
+            # saver.restore(sess, SAVE_DIR)
         else:
             print("checkpoint 파일이 존재하지 않습니다. 새로 생성합니다.")
-            sess.run(tf.global_variables_initializer())             # 
+            sess.run(tf.global_variables_initializer())  #
 
-        coord = tf.train.Coordinator()                          # 기본 큐 코디네이터 생성. 스레드들을 관리 가능
-        threads = tf.train.start_queue_runners(sess = sess, coord=coord)     # 큐 러너 생성.
+        coord = tf.train.Coordinator()  # 기본 큐 코디네이터 생성. 스레드들을 관리 가능
+        threads = tf.train.start_queue_runners(sess=sess, coord=coord)  # 큐 러너 생성.
 
         # sess.run(init)
 
@@ -83,12 +84,12 @@ def train():
             tf.gfile.DeleteRecursively(MODEL_SAVE_FOLDER)
         tf.gfile.MakeDirs(MODEL_SAVE_FOLDER)
         save_path = saver.save(sess, MODEL_SAVE_FOLDER)
-        print("Model saved in file : %s"%(save_path))
-         
+        print("Model saved in file : %s" % (save_path))
+
     pass
+
 
 #######################################################################################################
 # 단독으로 실행될 일이 없을 것 같음
 if __name__ == "__main__":
-    # split_data_file_to_file(INPUT_FILE_NAME, OUTPUT_FILE_NAME, WINDOW_SIZE, SLIDE_STEP_SIZE)
     pass

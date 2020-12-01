@@ -98,8 +98,7 @@ with tf.Session(config=config) as sess:
 
     concept_drift_counter = 0  # 개념 변화 카운터
 
-    while (True):  # ::::::::::::::조건 나중에 변경해야 할 것임. 스트림의 끝을 어떻게 감지하지?::::::::::::::
-
+    while True:  # ::::::::::::::조건 나중에 변경해야 할 것임. 스트림의 끝을 어떻게 감지하지?::::::::::::::
         try:
             dst_window = a_stream.getWindow()
         except:
@@ -114,7 +113,7 @@ with tf.Session(config=config) as sess:
             0]  # 비교 대상 윈도우에 대한 레이블을 설정
 
         # 아래 조건문에서 두 윈도우 사이에서 drift가 발생하는 지 우선 확인. 방법 1 수행과정 1에 해당
-        if (difference_matrix[reference_window.label][dst_window.label] > THRESHOLD_TO_TRIGGER):
+        if difference_matrix[reference_window.label][dst_window.label] > THRESHOLD_TO_TRIGGER:
             # 모든 검증이 완료된 것. drift가 실제로 발생했다고 판단하고 알림을 발생시키고 후속처리 수행
 
             print(dst_window.time, "시점에서 Concept drift가 발생했습니다.(",
